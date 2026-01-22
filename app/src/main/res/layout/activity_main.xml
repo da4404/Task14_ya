@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Switch
-        android:id="@+id/switch3"
+        android:id="@+id/switchAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="סדרה חשבונית"
@@ -19,6 +19,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.088" />
 
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="clac"
+        android:onClick="go"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2" />
+
     <EditText
         android:id="@+id/editTextNumberDecimal"
         android:layout_width="wrap_content"
@@ -28,7 +39,7 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch3" />
+        app:layout_constraintTop_toBottomOf="@+id/switchAnswer" />
 
     <EditText
         android:id="@+id/editTextNumberDecimal2"
