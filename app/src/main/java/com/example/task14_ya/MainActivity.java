@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         edit1 = findViewById(R.id.editTextNumberDecimal);
         edit2 = findViewById(R.id.editTextNumberDecimal2);

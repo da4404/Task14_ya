@@ -25,7 +25,6 @@ public class result extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_result);
         lv = findViewById(R.id.listItem);
         tv = findViewById(R.id.tvResult);
