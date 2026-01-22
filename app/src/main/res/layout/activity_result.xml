@@ -14,10 +14,14 @@
         android:layout_weight="1" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvResult"
         android:layout_width="0dp"
-        android:layout_height="24dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text=""
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:padding="10dp" />
 
 </LinearLayout>

@@ -12,9 +12,6 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 
@@ -31,8 +28,7 @@ public class result extends AppCompatActivity
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_result);
         lv = findViewById(R.id.listItem);
-        tv = findViewById(R.id.textView);
-
+        tv = findViewById(R.id.tvResult);
 
         Intent gi = getIntent();
         double first = gi.getDoubleExtra("first", 0);
@@ -66,6 +62,27 @@ public class result extends AppCompatActivity
         menu.add("mikom");
         menu.add("shom");
     }
+    /**
+     * Formats a double to a string, with special formatting for large and small numbers.
+     * <p>
+     * This method handles scientific notation for very large/small values and removes decimals for integers.
+     *
+     * @param num The number to format.
+     * @return String The formatted representation of the number.
+     */
+    public String formatNiceResult(double num) {
+        if (num == 0) {
+            return "0";
+        }
+        double absVal = Math.abs(num);
+        if (absVal >= 10000000 || absVal <= 0.001) {
+            return String.format("%.3E", num);
+        } else if (num == (long) num) {
+            return String.format("%d", (long) num);
+        } else {
+            return String.format("%.3f", num);
+        }
+    }
 
     @Override
     public boolean onContextItemSelected(MenuItem item)
@@ -85,7 +102,7 @@ public class result extends AppCompatActivity
             {
                 sum = sum + sidraArr.get(i);
             }
-            tv.setText("סכום הסדרה עד האיבר הנבחר: " + sum);
+            tv.setText("סכום הסדרה עד האיבר הנבחר: " + formatNiceResult(sum));
         }
 
         return true;

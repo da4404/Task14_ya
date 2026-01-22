@@ -2,9 +2,10 @@ package com.example.task14_ya;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Switch;
+import android.widget.RadioButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,17 +16,33 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     EditText edit1;
     EditText edit2;
-    Switch switchAnswer;
-
+    RadioButton rbArithmetic;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         edit1 = findViewById(R.id.editTextNumberDecimal);
         edit2 = findViewById(R.id.editTextNumberDecimal2);
-        switchAnswer = findViewById(R.id.switchAnswer);
+        rbArithmetic = findViewById(R.id.rbArithmetic);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if (item.getItemId() == R.id.action_credits)
+        {
+            Intent intent = new Intent(this, Credits.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public boolean isValidInput() {
@@ -44,9 +61,9 @@ public class MainActivity extends AppCompatActivity {
     public void go(View view)
     {
         if (isValidInput()) {
+            boolean isArithmetic = rbArithmetic.isChecked();
             double first = Double.parseDouble(edit1.getText().toString());
             double diff = Double.parseDouble(edit2.getText().toString());
-            boolean isArithmetic = switchAnswer.isChecked();
 
             Intent intent = new Intent(this, result.class);
             intent.putExtra("first", first);

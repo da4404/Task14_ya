@@ -7,18 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Switch
-        android:id="@+id/switchAnswer"
+    <RadioGroup
+        android:id="@+id/rgType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="סדרה חשבונית"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <RadioButton
+            android:id="@+id/rbArithmetic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="חשבונית"
+            android:layout_marginEnd="10dp"/>
+
+        <RadioButton
+            android:id="@+id/rbGeometric"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="הנדסית" />
+
+    </RadioGroup>
     <Button
         android:id="@+id/btnCalculate"
         android:layout_width="wrap_content"
