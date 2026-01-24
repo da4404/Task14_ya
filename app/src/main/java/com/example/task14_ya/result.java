@@ -14,7 +14,15 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-
+/**
+ * @author Darya student@email.com
+ *
+ * @version 1.0
+ *
+ * @since 18/01/2026
+ *
+ * This activity calculates and displays the mathematical series in a ListView and handles context menu actions for position and sum.
+ */
 public class result extends AppCompatActivity
 {
     ListView lv;
@@ -22,6 +30,12 @@ public class result extends AppCompatActivity
     ArrayList<Double> sidraArr = new ArrayList<>();
     ArrayAdapter<Double> adp;
     @Override
+    /**
+     * Initializes the activity, retrieves the series parameters from the intent, calculates the first 20 elements, and populates the ListView.
+     * <p>
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down.
+     */
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -52,19 +66,24 @@ public class result extends AppCompatActivity
         registerForContextMenu(lv);
 
     }
+    /**
+     * Creates a floating context menu when a list item is long-pressed, offering options to see the element's position or sum.
+     * <p>
+     *
+     * @param menu The context menu that is being built.
+     * @param v The view for which the context menu is being built.
+     * @param menuInfo Extra information about the item for which the context menu should be shown.
+     */
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-
-        // כותרת לתפריט הקטן
-        menu.setHeaderTitle("choose");
+        menu.setHeaderTitle("choose: ");
         menu.add("mikom");
         menu.add("shom");
     }
     /**
-     * Formats a double to a string, with special formatting for large and small numbers.
+     * Formats a double to a string, handling scientific notation for very large/small values and removing decimals for integers.
      * <p>
-     * This method handles scientific notation for very large/small values and removes decimals for integers.
      *
      * @param num The number to format.
      * @return String The formatted representation of the number.
@@ -82,7 +101,14 @@ public class result extends AppCompatActivity
             return String.format("%.3f", num);
         }
     }
-
+    /**
+     * Handles the selection of an item in the context menu.
+     * Displays either the position (index) of the element or the cumulative sum up to that element.
+     * <p>
+     *
+     * @param item The context menu item that was selected.
+     * @return boolean Return true to consume the menu click.
+     */
     @Override
     public boolean onContextItemSelected(MenuItem item)
     {
