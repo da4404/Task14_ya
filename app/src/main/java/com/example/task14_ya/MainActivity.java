@@ -80,10 +80,13 @@ public class MainActivity extends AppCompatActivity {
         if (str1.isEmpty() || str2.isEmpty()) {
             return false;
         }
-
-        if (str1.equals(".") || str1.equals("-") || str2.equals(".") || str2.equals("-")) {
+        if (str1.equals("-") || str1.equals(".") || str1.equals("-.")) {
             return false;
         }
+        if (str2.equals("-") || str2.equals(".") || str2.equals("-.")) {
+            return false;
+        }
+
         return true;
     }
     /**
